@@ -1,0 +1,43 @@
+<section class="mt-32 mx-auto flex flex-col justify-center items-center text-center text-primary">
+    <h2 class="uppercase text-5xl font-semibold">
+        4 de Marzo
+        <span aria-hidden class="hidden md:inline">&centerdot;</span>
+        <br aria-hidden class="block md:hidden">
+        <span>
+            <script is:inline>
+                const END_DATE = 1709575200
+                const d = new Date(END_DATE)
+                const date = d.toLocaleTimeString("es", {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                })
+
+                const tzOffset = d.getTimezoneOffset()
+                const diff = tzOffset / 60 * -1
+                const gmt = diff > 0 ? `GMT+${diff}` : `GMT-${Math.abs(diff)}`
+
+                const TZ_DICTIONARY = {
+                    "GMT+1" : "CET",
+                }
+
+                const selfScript = document.currentScript
+                selfScript.parentNode.innerHTML = `${date}H ${TZ_DICTIONARY[gmt] ?? gmt}`
+            </script>
+        </span>
+    </h2>
+
+    <h3 class="uppercase text-2xl font-medium flex flex-col max-w-sm mt-6">
+        <span>Evento de Presentación</span>
+        <span>Teatro victoria (Barcelona)</span>
+    </h3>
+
+    <a 
+        class={`
+            border-primary border-2 font-medium px-4 py-1 mt-8 uppercase
+            hover:bg-secondary hover:scale-110 text-lg transition
+        `}
+        href="https://www.teatrevictoria.com/es/cartelera/c/190_la-velada-del-ano-4.html" target="_blank" rel="noopener noreferrer"
+    >
+        Entradas agotadas
+    </a>
+</section>
